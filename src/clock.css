@@ -1,0 +1,204 @@
+.clock-app {
+  min-height: 100vh;
+  color: #25104a;
+  background: #f8f6fb;
+  font-family: system-ui, sans-serif;
+  --clock-ink: #25104a;
+  --clock-purple: #5111a0;
+  --clock-purple-dark: #351064;
+  --clock-slate: #4b5563;
+  --clock-outline: #e6dcef;
+  --clock-green-dark: #26732c;
+  --clock-surface: #fff;
+  --clock-surface-soft: #faf8fc;
+  --clock-radius: 1rem;
+  --clock-shadow: 0 12px 32px rgba(37, 16, 74, 0.1);
+}
+
+.clock-app,
+.clock-app * {
+  box-sizing: border-box;
+}
+
+.clock-app button {
+  font: inherit;
+}
+
+.clock-page {
+  width: min(64rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-block: clamp(2rem, 6vw, 4.5rem);
+  color: var(--clock-ink);
+}
+
+.clock-tabs {
+  display: flex;
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 1.25rem;
+  padding: 0.35rem;
+  border: 1px solid var(--clock-outline);
+  border-radius: 999px;
+  background: var(--clock-surface);
+  box-shadow: var(--clock-shadow);
+}
+
+.clock-tab {
+  min-height: 2.75rem;
+  padding: 0.65rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--clock-purple-dark);
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clock-tab[aria-selected='true'] {
+  color: #fff;
+  background: var(--clock-purple-dark);
+}
+
+.clock-tab:focus-visible,
+.clock-panel:focus-visible {
+  outline: 3px solid var(--clock-green-dark);
+  outline-offset: 3px;
+}
+
+.clock-panel {
+  border: 1px solid var(--clock-outline);
+  border-radius: var(--clock-radius);
+  background: var(--clock-surface);
+  box-shadow: var(--clock-shadow);
+}
+
+.clock-time-panel {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+}
+
+.clock-time-panel h1,
+.clock-lineup-header h1 {
+  margin: 0;
+  color: var(--clock-ink);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.clock-digital-time {
+  display: block;
+  margin-top: 1rem;
+  color: var(--clock-purple);
+  font-size: clamp(3rem, 13vw, 5.5rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.clock-date,
+.clock-timezone {
+  color: var(--clock-slate);
+}
+
+.clock-date {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+}
+
+.clock-timezone {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+}
+
+.clock-lineup-panel {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.clock-lineup-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--clock-outline);
+}
+
+.clock-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--clock-purple-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.clock-lineup-header > p:last-child {
+  margin: 0.65rem 0 0;
+  color: var(--clock-slate);
+}
+
+.clock-lineup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clock-lineup-item {
+  display: grid;
+  grid-template-columns: minmax(10.5rem, 0.32fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding: 0.95rem 0.75rem;
+  border-bottom: 1px solid #eee8f3;
+}
+
+.clock-lineup-item:nth-child(even) {
+  background: var(--clock-surface-soft);
+}
+
+.clock-lineup-item time {
+  color: var(--clock-purple-dark);
+  font-variant-numeric: tabular-nums;
+  font-weight: 750;
+}
+
+.clock-lineup-item span {
+  color: var(--clock-ink);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.clock-lineup-note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--clock-green-dark);
+  border-radius: 0.5rem;
+  background: #f5faf4;
+}
+
+.clock-lineup-note h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.clock-lineup-note p {
+  margin: 0.5rem 0 0;
+  color: var(--clock-slate);
+  line-height: 1.6;
+}
+
+.clock-lineup-gap-note {
+  margin: 1.25rem 0 0;
+  color: var(--clock-slate);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .clock-lineup-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .clock-tab {
+    padding-inline: 0.9rem;
+  }
+}
